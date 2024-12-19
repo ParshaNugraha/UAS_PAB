@@ -23,7 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/lelangs', [LelangController::class, 'index']);
-    Route::get('/lelangs/{id}', [LelangController::class, 'show']);
+    Route::get('/lelangs/Barang{id}', [LelangController::class, 'show']);
 
 });
 
@@ -31,8 +31,7 @@ Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
     Route::post('/lelangs/bikin', [LelangController::class, 'store']);
     Route::put('/lelangs/update{id}', [LelangController::class, 'update']);
     Route::delete('/lelangs/hapus{id}', [LelangController::class, 'destroy']);
-    Route::post('/m2m/update-lelang', [LelangController::class, 'updateStatus']);
-    Route::post('/machine/notify', [WebhookController::class, 'notify']);
+    Route::post('/lelangs/berakhir', [WebhookController::class, 'notify']);
 
 });
 
