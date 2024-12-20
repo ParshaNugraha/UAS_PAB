@@ -20,7 +20,7 @@ class NewAuctionNotification extends Notification
 
     public function via($notifiable)
     {
-        return ['mail']; // Anda bisa menambahkan 'database' atau 'broadcast' jika diperlukan
+        return ['mail']; 
     }
 
     public function toMail($notifiable)
@@ -33,7 +33,6 @@ class NewAuctionNotification extends Notification
         
     }
 
-    // Jika Anda ingin menyimpan notifikasi ke database
     public function toArray($notifiable)
     {
         return [

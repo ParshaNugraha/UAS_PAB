@@ -25,18 +25,18 @@ class WebhookController extends Controller
             // Perbarui status lelang
             $lelang->status = 'berakhir';
             $lelang->save();
-            $users = User::all(); // Anda bisa menyesuaikan ini untuk hanya pengguna yang berpartisipasi
+            $users = User::all(); // menyesuaikan untuk hanya pengguna yang berpartisipasi
             foreach ($users as $user) {
                 $user->notify(new AuctionEndedNotification($lelang));
             }
 
-            // Log informasi untuk debugging
+            
             Log::info('Status lelang telah diperbarui', [
                 'id' => $lelang->id,
                 'new_status' => $lelang->status,
             ]);
 
-            // Kembalikan respons sukses
+       
             return response()->json([
                 'message' => 'Status lelang berhasil diperbarui.',
                 'lelang' => $lelang,

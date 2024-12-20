@@ -22,8 +22,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/lelangs', [LelangController::class, 'index']);
-    Route::get('/lelangs/Barang{id}', [LelangController::class, 'show']);
+    Route::get('/lelangs/aktif', [LelangController::class, 'index']);
+    Route::get('/lelangs/barang{id}', [LelangController::class, 'show']);
 
 });
 
